@@ -31,7 +31,6 @@ export const EntryList: FC<Props> = ({ status }) => {
         endDragging()
   }
 
-  console.log(isDragging)
  
   return (
     // drop

@@ -1,6 +1,34 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Create Snipets: 
+## Dockers compose -> imagen data base Mongo
+
+para correr localmente , se necesita correr la base de datos
+
+```
+docker-compose up -d
+
+```
+
+- el -d, significa **detached**
+- data base mongodb URL local:
+
+```
+mongodb://localhost:27017/entriesdb
+```
+
+## Configurar variables de entorno
+
+REnombrarv archivo : **.env.template** a **.env**
+
+## Llenar la base de datos con info de prueba
+
+llamar a:
+```
+http://localhost:3000/api/seed
+```
+
+## Create Snipets:
+
 comand + shift + p -> option user snipets
 
 ## Getting Started
