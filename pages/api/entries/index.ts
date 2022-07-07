@@ -29,23 +29,23 @@ const getEntries = async (res: NextApiResponse<Data>) => {
 };
 
 const postEntry = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
-  const { description = "" } = req.body;
+  const { description = "", status = "pending" } = req.body;
 
-  const newEntry = new Entry({
+  const newEntry = {
     description,
+    status,
     createdAt: Date.now(),
-  });
+  };
   try {
     await db.connect();
-    await newEntry.save();
+    const response = await Entry.create(newEntry);
     await db.disconnect();
+    console.log(response);
     //@ts-ignore
     return res.status(201).json(newEntry);
   } catch (error) {
     await db.disconnect();
     console.log(error);
-    return res.status(500).json({ message:'Algo slaio mal' });
+    return res.status(500).json({ message: "Algo salio mal" });
   }
 };
-
-

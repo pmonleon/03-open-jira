@@ -4,11 +4,17 @@ import { CssBaseline, ThemeProvider } from '@mui/material'
 import { darkTheme, lightTheme } from '../themes'
 import { UiProvider } from '../context/ui'
 import { EntriesProvider } from '../context/entries/EntriesProvider';
+import { SnackbarProvider } from 'notistack';
+
+  
+
 
 
 
 function MyApp({ Component, pageProps }: AppProps) {
   return( 
+
+  <SnackbarProvider maxSnack={3}>
     <EntriesProvider>
       <UiProvider>
         <ThemeProvider theme={ darkTheme } >
@@ -17,6 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         </ThemeProvider>
       </UiProvider>
     </EntriesProvider>
+  </SnackbarProvider>
   )
 }
 

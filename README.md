@@ -20,9 +20,17 @@ mongodb://localhost:27017/entriesdb
 
 REnombrarv archivo : **.env.template** a **.env**
 
+## Reconstruir modulos de node -> levantar nextjs
+
+```
+yarn install
+yarn dev
+```
+
 ## Llenar la base de datos con info de prueba
 
 llamar a:
+
 ```
 http://localhost:3000/api/seed
 ```
